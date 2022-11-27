@@ -18,7 +18,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     DashboardComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ]
 })
 export class PageModule { }
