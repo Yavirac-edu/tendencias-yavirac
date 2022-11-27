@@ -10,10 +10,13 @@ import { ProductComponent } from './pages/product/product.component';
 
 
 const routes:Routes = [
-  {path: '', component:PagesComponent},
+  {path: '', component:PagesComponent, 
+  children:[
   {path:'dashboard', component:DashboardComponent},
   {path: 'product', component:ProductComponent},
   {path: 'catalogue', component:CatalogueComponent},
+  {path:'', redirectTo:'/dashboard', pathMatch:'full'},
+  ]},
   {path:'login', component:LoginComponent},
   {path:'register',component:RegisterComponent},
   // {path:'', redirectTo:'/dashboard', pathMatch:'full'},
