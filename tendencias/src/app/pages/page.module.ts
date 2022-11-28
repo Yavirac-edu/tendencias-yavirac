@@ -6,6 +6,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { PagesComponent } from './pages.component';
 import { SharedModule } from "../shared/shared.module";
 import { RouterModule } from '@angular/router';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { RouterModule } from '@angular/router';
     CommonModule,
     SharedModule,
     RouterModule,
-    SharedModule,
+    AuthModule,
   ],
 })
 export class PageModule { }
