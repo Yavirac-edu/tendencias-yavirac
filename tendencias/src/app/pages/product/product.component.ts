@@ -69,17 +69,22 @@ export class ProductComponent implements OnInit {
      })
    }
 
-   deleteProduct() {
-    let  data = {
-       title: 'quinto a',
-       price: Number.toString,
-       descripcion: 'Steveen Ordoñez',
-       images: ['imagen'],
-       category: 1,
-     }
+   updateProductID() {
+    let id=1;
      let url = 'https://api.escuelajs.co/api/v1/products';
  
-     let response = this.httpClient.delete(url+'/'+data).subscribe(Response => {
+     let response = this.httpClient.put(url+'/',id).subscribe(Response => {
+       console.log(response);
+ 
+     })
+   }
+
+
+   deleteProductId() {
+    let idProduct= 1;
+     let url = 'https://api.escuelajs.co/api/v1/products';
+ 
+     let response = this.httpClient.delete(url+'/'+idProduct).subscribe(Response => {
        console.log(response);
  
      })
