@@ -10,84 +10,71 @@ import { ProductModel } from 'src/app/models/product.model';
 export class ProductComponent implements OnInit {
 
   constructor(
-    // private  productModel:ProductModel,
     private httpClient: HttpClient,
-
   ) { }
 
 
   ngOnInit(): void {
+    // this.createProduct();
+    // this.getProducts();
+    // this.getProductsId();
+    // this.updateProduct();
+    this.deleteProduct();
+  }
+
+  private url: string = "https://api.escuelajs.co/api/v1/products/8";
+
+  data = {
+
+    title: 'Hector Ordoñez',
+    price: 50,
+    description: 'Quinto A',
+    images: [],
+    categoryId: 1,
   }
 
   getProducts() {
-    let url = 'https://api.escuelajs.co/api/v1/products'
-    const response = this.httpClient.get(url).subscribe(Response => {
+    this.httpClient.get(this.url).subscribe(response => {
       console.log(response);
+      console.log('get')
     })
   };
 
-  getProductiId() {
-    let id = 1;
-    let url = 'https://api.escuelajs.co/api/v1/products';
-
-    let response = this.httpClient.get(url + '/' + id).subscribe(Response => {
+  getProductsId() {
+    this.httpClient.get(this.url).subscribe(response => {
       console.log(response);
-
+      console.log('get')
     })
-  }
+  };
 
   createProduct() {
-   let  data = {
-      title: 'quinto a',
-      price: Number.toString,
-      descripcion: 'steveen ordoñez',
-      images: ['imagen'],
-      category: 1,
-    }
-    let id = 1;
-    let url = 'https://api.escuelajs.co/api/v1/products';
-
-    let response = this.httpClient.post(url,data).subscribe(Response => {
-      console.log(response);
-
-    })
+    this.httpClient.post(this.url, this.data).subscribe(
+      response => {
+        console.log('response');
+        console.log('post');
+      }
+    );
   }
 
+
   updateProduct() {
-    let  data = {
-       title: 'quinto a',
-       price: Number.toString,
-       descripcion: 'Steveen Ordoñez',
-       images: ['imagen'],
-       category: 1,
-     }
-     let url = 'https://api.escuelajs.co/api/v1/products';
- 
-     let response = this.httpClient.put(url,data).subscribe(Response => {
-       console.log(response);
- 
-     })
-   }
+    this.httpClient.put(this.url, this.data).subscribe(
+      response => {
+        console.log('response');
+        console.log('put');
+      }
+    );
+  }
 
-   updateProductID() {
-    let id=1;
-     let url = 'https://api.escuelajs.co/api/v1/products';
- 
-     let response = this.httpClient.put(url+'/',id).subscribe(Response => {
-       console.log(response);
- 
-     })
-   }
+  deleteProduct() {
+    this.httpClient.delete(this.url).subscribe(
+      response => {
+        console.log(response);
+        console.log('delete');
+      }
+    );
+  }
 
 
-   deleteProductId() {
-    let idProduct= 1;
-     let url = 'https://api.escuelajs.co/api/v1/products';
- 
-     let response = this.httpClient.delete(url+'/'+idProduct).subscribe(Response => {
-       console.log(response);
- 
-     })
-   }
 }
 
