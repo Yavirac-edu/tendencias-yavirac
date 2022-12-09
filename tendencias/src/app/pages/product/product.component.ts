@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, } from '@angular/core';
 import { ProductModel } from 'src/app/models/product.model';
+import { ProductHttpService } from '../../service/product-http.service';
 
 @Component({
   selector: 'app-product',
@@ -11,6 +12,7 @@ export class ProductComponent implements OnInit {
 
   constructor(
     private httpClient: HttpClient,
+    private productHttpService: ProductHttpService, 
   ) { }
 
 
@@ -22,33 +24,23 @@ export class ProductComponent implements OnInit {
     this.deleteProduct();
   }
 
-  private url: string = "https://api.escuelajs.co/api/v1/products/8";
-
-  data = {
-
-    title: 'Hector Ordoñez',
-    price: 50,
-    description: 'Quinto A',
-    images: [],
-    categoryId: 1,
+  getProducts() {
+    this.productHttpService.getAll().subscribe(
+      response=>(
+        console.log(response)
+      )
+    )
   }
 
-  getProducts() {
-    this.httpClient.get(this.url).subscribe(response => {
-      console.log(response);
-      console.log('get')
-    })
-  };
-
   getProductsId() {
-    this.httpClient.get(this.url).subscribe(response => {
+    this.productHttpService.getOne(9).subscribe(response => {
       console.log(response);
       console.log('get')
     })
   };
 
   createProduct() {
-    this.httpClient.post(this.url, this.data).subscribe(
+    this.productHttpService.createProduct().subscribe(
       response => {
         console.log('response');
         console.log('post');
@@ -58,7 +50,16 @@ export class ProductComponent implements OnInit {
 
 
   updateProduct() {
-    this.httpClient.put(this.url, this.data).subscribe(
+    this.productHttpService.updateProduct().subscribe(
+      response => {
+        console.log('response');
+        console.log('put');
+      }
+    );
+  }
+
+  updateOne() {
+    this.productHttpService.updateOne(8).subscribe(
       response => {
         console.log('response');
         console.log('put');
@@ -67,7 +68,7 @@ export class ProductComponent implements OnInit {
   }
 
   deleteProduct() {
-    this.httpClient.delete(this.url).subscribe(
+    this.productHttpService.deleteProduct(9).subscribe(
       response => {
         console.log(response);
         console.log('delete');
