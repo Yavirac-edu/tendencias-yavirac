@@ -1,18 +1,11 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": "72d90a5d-fd86-4cf3-afd2-940d8b10f63e"
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "tendencias": {
+    "client": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -20,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tendencias",
+            "outputPath": "dist/client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -71,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "tendencias:build:production"
+              "browserTarget": "client:build:production"
             },
             "development": {
-              "browserTarget": "tendencias:build:development"
+              "browserTarget": "client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +75,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "tendencias:build"
+            "browserTarget": "client:build"
           }
         },
         "test": {
@@ -105,5 +98,7 @@
       }
     }
   },
-  "defaultProject": "tendencias"
+  "cli": {
+    "analytics": "6e47422a-b0eb-4667-a422-8fdf7376ac08"
+  }
 }

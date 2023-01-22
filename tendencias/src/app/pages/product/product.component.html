@@ -1,7 +1,42 @@
-<p>Productos </p>
+<div class="card">
+    <div class="card-header">
+        Producto
+    </div>
+    <div class="card-body">
+        <div class="mb-3">
+          <label for="title" class="form-label">Producto:</label>
+          <input type="text" id="title" [value]="selectedProduct.title" class="form-control">
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>
+<hr>
+<div class="table-responsive">
+    <table class="table table-primary">
+        <thead>
+            <tr>
+                <th scope="col">Producto</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Descripción</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Eliminar</th>
+                <th scope="col">Actualizar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="" *ngFor="let product of products">
+                <td>{{product.title}}</td>
+                <td>{{product.price}}</td>
+                <td>{{product.description}}</td>
+                <td>{{product.category}}</td>
+                <td><img src="{{product.images}}" alt="" width="150px" height="200px">
+                <td><button (click)="deleteProduct(product.id)" >Eliminar</button></td>
+                <td><button (click)="editProduct(product)" >Editar</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
-<ol>
-    <ul>Nombre: Steveen Ordoñez</ul>
-    <ul>Curso: 5to </ul>
-    <ul>Jornada: Vespertina</ul>
-</ol>
+
