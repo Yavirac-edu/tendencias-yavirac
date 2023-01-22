@@ -1,42 +1,58 @@
-<div class="card">
-    <div class="card-header">
-        Producto
-    </div>
-    <div class="card-body">
-        <div class="mb-3">
-          <label for="title" class="form-label">Producto:</label>
-          <input type="text" id="title" [value]="selectedProduct.title" class="form-control">
+<div
+    class="container-fluid bg-light justify-content-xl-center col-auto col col-sm-12 px-sm-1 col-md-11 px-md-1 col-xl-11 px-xl-1 col-lg-11 px-lg-4">
+    <div
+        class=" justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
+        <h5 class="pt-1">Actualizar Productos</h5>
+        <div class="card-body">
+            <form>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Producto</label>
+                    <input type="text" id="title" [value]="selectedProduct.title" class="form-control"
+                        placeholder="Producto">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Precio</label>
+                    <input type="text" id="title" [value]="selectedProduct.price" class="form-control"
+                        placeholder="Producto">
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Precio</label>
+                    <input type="text" id="title" [value]="selectedProduct.description" class="form-control"
+                        placeholder="Producto">
+                </div>
+                <button type="submit" class="btn btn-primary" (click)="updateProduct()">Actualizar</button>
+            </form>
         </div>
     </div>
-    <div class="card-footer text-muted">
-        Footer
+
+    <!-- table -->
+    <div
+        class=" justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
+        <h5 class="pt-1">Productos Almacenados</h5>
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Producto</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Actualizar</th>
+                        <th scope="col">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="" *ngFor="let product of products">
+                        <td>{{product.title}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.description}}</td>
+                        <td><img src="{{product.images}}" alt="" width="150px" height="200px">
+                        <td><button class="btn btn-primary" (click)="editProduct(product)">Editar</button></td>
+                        <td><button class="btn btn-danger" (click)="deleteProduct(product.id)">Eliminar</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
-<hr>
-<div class="table-responsive">
-    <table class="table table-primary">
-        <thead>
-            <tr>
-                <th scope="col">Producto</th>
-                <th scope="col">Precio</th>
-                <th scope="col">Descripción</th>
-                <th scope="col">Imagen</th>
-                <th scope="col">Eliminar</th>
-                <th scope="col">Actualizar</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr class="" *ngFor="let product of products">
-                <td>{{product.title}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.description}}</td>
-                <td>{{product.category}}</td>
-                <td><img src="{{product.images}}" alt="" width="150px" height="200px">
-                <td><button (click)="deleteProduct(product.id)" >Eliminar</button></td>
-                <td><button (click)="editProduct(product)" >Editar</button></td>
-            </tr>
-        </tbody>
-    </table>
-</div>
 
-
+  

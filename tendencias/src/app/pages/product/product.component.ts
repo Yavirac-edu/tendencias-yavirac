@@ -20,7 +20,7 @@ export class ProductComponent implements OnInit {
     this.getProducts();
     //this.getProduct();
     //this.createProduct();
-    //this.updateProduct();
+    this.updateProduct();
     //this.deleteProduct();
   }
   
