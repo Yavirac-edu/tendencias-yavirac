@@ -2,30 +2,50 @@
     class="container-fluid bg-light justify-content-xl-center col-auto col col-sm-12 px-sm-1 col-md-11 px-md-1 col-xl-11 px-xl-1 col-lg-11 px-lg-4">
     <div
         class=" justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
-        <h5 class="pt-1">Actualizar Productos</h5>
+        <h3 class="pt-1">Actualizar Productos</h3>
         <div class="card-body">
-            <form>
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Producto</label>
-                    <input type="text" id="title" [value]="selectedProduct.title" class="form-control"
-                        placeholder="Producto">
+            <form action="product">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-auto col-lg-6">
+                            <div class="mb-3">
+                                <label for="title" class="form-label"><strong>Title</strong></label>
+                                <input type="text" name="title" [(ngModel)]="selectProduct.title"
+                                    value="{{selectProduct.title}}" id="title" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="images" class="form-label"><strong>Images</strong></label>
+                                <input type="text" name="images" [(ngModel)]="selectProduct.images"
+                                    value="{{selectProduct.images}}" id="images" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="mb-3">
+                                <label for="price" class="form-label"><strong>Price</strong></label>
+                                <input min="1" type="number" name="" value="{{selectProduct.price}}" id="price"
+                                    class="form-control">
+                            </div>
+                            <div
+                                class="col-auto col-md-12 px-md-5 col-sm-12 px-sm-5 col-lg-12 px-lg-5 col-xl-12 px-xl-5">
+                                <label for="description" class="form-label"><strong>Description</strong></label>
+                                <textarea
+                                    class="col-auto col-md-12  px-md-5 col-sm-12 px-sm-5 col-lg-12 px-lg-5 col-xl-12 px-xl-5"
+                                    name="description" [(ngModel)]="selectProduct.description" id="description"
+                                    value="{{selectProduct.description}}"></textarea>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Precio</label>
-                    <input type="text" id="title" [value]="selectedProduct.price" class="form-control"
-                        placeholder="Producto">
+                <div>
+
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label">Precio</label>
-                    <input type="text" id="title" [value]="selectedProduct.description" class="form-control"
-                        placeholder="Producto">
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary" (click)="updateProduct()">Actualizar</button>
                 </div>
-                <button type="submit" class="btn btn-primary" (click)="updateProduct()">Actualizar</button>
+
             </form>
         </div>
     </div>
-
-    <!-- table -->
     <div
         class=" justify-content-md-center card col-auto col-12 px-5 col-sm-11 px-sm-1 col-md-11 px-md-1 col-xl-10 px-xl-1 col-lg-10 px-lg-1">
         <h5 class="pt-1">Productos Almacenados</h5>
@@ -54,5 +74,3 @@
             </table>
         </div>
     </div>
-
-  
