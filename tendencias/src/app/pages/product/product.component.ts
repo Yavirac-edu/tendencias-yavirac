@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, } from '@angular/core';
 import { ProductHttpService } from '../../service/product-http.service';
 import { ProductModel, UpdateProductDto } from 'src/app/models/product.model';
